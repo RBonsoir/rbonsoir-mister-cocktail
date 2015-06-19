@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'cocktails#index'
 
-  resources :cocktails, only: [:new, :create, :index, :show] do
+  resources :cocktails, only: [:new, :create, :index, :show, :destroy] do
     resources :doses, only: [:new, :create, :destroy]
   end
   # GET   /cocktails/:id <- cocktail_path
