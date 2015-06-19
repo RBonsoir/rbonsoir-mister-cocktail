@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  root to: 'cocktails#index'
+
+  resources :cocktails, only: [:new, :create, :index, :show] do
+    resources :doses, only: [:new, :create, :destroy]
+  end
+  # GET   /cocktails/:id <- cocktail_path
+  # GET   /cocktails <- cocktails_path
+  # POST  /cocktails <- cocktails_path
+  # GET   /cocktails/new <- new_cocktails_path
+
+  # GET    /cocktails/:id/doses/new <- new_cocktails_doses_path
+  # POST   /cocktails/:id/doses/ <- cocktails_doses_path
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
